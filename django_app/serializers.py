@@ -2,10 +2,28 @@ from rest_framework import serializers
 from .models import User, Home, Favorite
 from django.contrib.auth.hashers import make_password
 
-class UserSerializer(serializers.ModelSerializer):
+class HomeObjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Home
+        fields = ('id', 'photo', 'price', 'bed', 'bath', 'street', 'city', 'state', 'zip_code', 'lat', 'log')
+
+class UserObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'phone_number', 'social_level', 'hobbies','budget', 'current_rent', 'lease_end')
+        fields = ('id', 'username', 'email', 'phone_number', 'social_level', 'hobbies', 'budget', 'current_rent', 'lease_end')
+
+class FavoriteObjectSerializer(serializers.ModelSerializer):
+    home = HomeObjectSerializer(many=False)
+
+    class Meta:
+        model = Favorite
+        fields = ('home', 'id')
+
+class UserSerializer(serializers.ModelSerializer):
+    favorites = FavoriteObjectSerializer(many=True)
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'password', 'email', 'phone_number', 'social_level', 'hobbies','budget', 'current_rent', 'lease_end', 'favorites')
     
     def create(self, validated_data):
         user = User.objects.create(
@@ -25,9 +43,11 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class HomeSerializer(serializers.ModelSerializer):
+    users = UserObjectSerializer(many=True)
+    
     class Meta:
         model = Home
-        fields = ('id', 'photo', 'price', 'bed', 'bath', 'street', 'city', 'state', 'zip_code', 'lat', 'log')
+        fields = ('id', 'photo', 'price', 'bed', 'bath', 'street', 'city', 'state', 'zip_code', 'lat', 'log', 'users')
 
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
