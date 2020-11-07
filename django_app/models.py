@@ -2,12 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 
 class User(AbstractUser):
-    phone_number = models.CharField(max_length=50)
-    social_level = models.CharField(max_length=50)
-    hobbies = models.CharField(max_length=50)
-    budget = models.CharField(max_length=50)
-    current_rent = models.CharField(max_length=50)
-    lease_end = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=True)
+    phone_number = models.CharField(max_length=50, null=True)
+    social_level = models.CharField(max_length=50, null=True)
+    hobbies = models.CharField(max_length=250, null=True)
+    budget = models.CharField(max_length=50, null=True)
+    current_rent = models.CharField(max_length=50, null=True)
+    income = models.CharField(max_length=50, null=True)
+    occupation = models.CharField(max_length=50, null=True)
+    lease_end = models.CharField(max_length=50, null=True)
+    marital_status = models.CharField(max_length=50, null=True)
+    picture = models.CharField(max_length=250, null=True)
 
     def __str__(self):
         return self.username

@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'home_listings',
         'USER': 'postgres',
-        'PASSWORD': "GourmetExpress32!",
+        'PASSWORD': "",
         'HOST': 'localhost',
         'PORT': '5432',
     }

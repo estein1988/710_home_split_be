@@ -3,7 +3,7 @@ from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from .models import User, Home, Favorite
 from .serializers import UserSerializer, HomeSerializer, FavoriteSerializer
-import pdb
+# import pdb
 
 # Create your views here.
 class UserView(viewsets.ModelViewSet):
