@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 class HomeObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Home
-        fields = ('id', 'photo', 'price', 'bed', 'bath', 'street', 'city', 'state', 'zip_code', 'lat', 'log')
+        fields = ('id', 'property_id', 'listing_id', 'rdc_web_url', 'prop_type', 'href', 'city', 'line', 'postal_code', 'state_code', 'state', 'fips_code', 'lat', 'lon', 'neighborhood_name', 'prop_status', 'price', 'baths_full', 'baths', 'beds', 'size', 'units', 'photo_count', 'thumbnail', 'page_no', 'rank', 'mls_id', 'abbreviation')
 
 class UserObjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -53,7 +53,7 @@ class HomeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Home
-        fields = ('id', 'photo', 'price', 'bed', 'bath', 'street', 'city', 'state', 'zip_code', 'lat', 'log', 'users', 'favorites')
+        fields = ('id', 'property_id', 'listing_id', 'rdc_web_url', 'prop_type', 'href', 'city', 'line', 'postal_code', 'state_code', 'state', 'fips_code', 'lat', 'lon', 'neighborhood_name', 'prop_status', 'price', 'baths_full', 'baths', 'beds', 'size', 'units', 'photo_count', 'thumbnail', 'page_no', 'rank', 'mls_id', 'abbreviation', 'users', 'favorites')
 
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:

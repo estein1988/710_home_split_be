@@ -18,21 +18,37 @@ class User(AbstractUser):
         return self.username
 
 class Home(models.Model):
-    photo = models.CharField(max_length=100)
-    price = models.CharField(max_length=15)
-    bed = models.IntegerField()
-    bath = models.IntegerField()
-    street = models.CharField(max_length=15)
-    city = models.CharField(max_length=15)
-    state = models.CharField(max_length=15)
-    zip_code = models.CharField(max_length=15)
-    lat_long = models.JSONField(default=dict)
+    property_id = models.CharField(max_length=50, null=True)
+    listing_id = models.CharField(max_length=50, null=True)
+    rdc_web_url = models.CharField(max_length=250, null=True)
+    prop_type = models.CharField(max_length=100, null=True)
+    href = models.CharField(max_length=250, null=True)
+    city = models.CharField(max_length=25, null=True)
+    line = models.CharField(max_length=50, null=True)
+    postal_code = models.CharField(max_length=15, null=True)
+    state_code = models.CharField(max_length=15, null=True)
+    state = models.CharField(max_length=15, null=True)
+    fips_code = models.CharField(max_length=15, null=True)
     lat = models.FloatField(null=True)
-    log = models.FloatField(null=True)
+    lon = models.FloatField(null=True)
+    neighborhood_name = models.CharField(max_length=100, null=True)
+    prop_status = models.CharField(max_length=100, null=True)
+    price = models.IntegerField(null=True)
+    baths_full = models.IntegerField(null=True)
+    baths = models.IntegerField(null=True)
+    beds = models.IntegerField(null=True)
+    size = models.IntegerField(null=True)
+    units = models.CharField(max_length=15, null=True)
+    photo_count = models.IntegerField(null=True)
+    thumbnail = models.CharField(max_length=250, null=True)
+    page_no = models.IntegerField(null=True)
+    rank = models.CharField(max_length=15, null=True)
+    mls_id = models.CharField(max_length=15, null=True)
+    abbreviation = models.CharField(max_length=15, null=True)
     users = models.ManyToManyField(User, related_name='users', through='Favorite')
 
     def __str__(self):
-        return f'{self.id}: {self.street}'
+        return f'{self.id}: {self.line}'
 
 
 class Favorite(models.Model):
