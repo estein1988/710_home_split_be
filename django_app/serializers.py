@@ -20,7 +20,7 @@ class FavoriteObjectSerializer(serializers.ModelSerializer):
         fields = ('home', 'id')
 
 class UserSerializer(serializers.ModelSerializer):
-    favorites = FavoriteObjectSerializer(many=True)
+    favorites = FavoriteObjectSerializer(many=True, required=False)
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'email', 'name', 'phone_number', 'social_level', 'hobbies', 'budget', 'current_rent', 'income', 'occupation', 'lease_end', 'marital_status', 'picture', 'favorites')
