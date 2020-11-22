@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://home-split-7-10.herokuapp.com/']
 
 
 # Application definition
@@ -135,6 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
