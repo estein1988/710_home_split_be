@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = ['https://home-split-7-10.herokuapp.com/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://home-split-7-10.herokuapp.com/', '127.0.0.1', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -88,14 +88,13 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'home_listings',
-        'USER': 'postgres',
-        'PASSWORD': config('PG_PASSWORD'),
-        'HOST': 'localhost',
+        'NAME': 'd1jd03teeqb6ok',
+        'HOST': 'ec2-3-213-106-122.compute-1.amazonaws.com',
         'PORT': '5432',
+        'USER': 'rymbvecxdyyhti',
+        'PASSWORD': config('HEROKU_PASSWORD')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
