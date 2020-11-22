@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import django_heroku
 import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -141,3 +142,4 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "django_app.User"
+django_heroku.settings(locals())
