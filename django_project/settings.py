@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = ['https://home-split-7-10.herokuapp.com/']
+ALLOWED_HOSTS = ['https://home-split-7-10.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
