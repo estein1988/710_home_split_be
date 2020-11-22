@@ -23,5 +23,6 @@ sqlparse==0.4.1
 toml==0.10.1
 typed-ast==1.4.1
 virtualenv==20.1.0
+whitenoise==5.2.0
 wrapt==1.12.1
 zipp==3.4.0
